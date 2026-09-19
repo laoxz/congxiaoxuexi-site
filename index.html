@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>从小学习 (congxiaoxuexi.com) - K12全学段免费优质学习资料库</title>
+  <meta name="description" content="从小学习 (congxiaoxuexi.com) 专注于为幼儿园、小学、初中、高中学生与家长提供免费精选优质课件、真题大题与思维导图资源。">
+  <link rel="canonical" href="https://congxiaoxuexi.com/">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#0c4a6e',
+            },
+            mint: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            },
+            quark: {
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          },
+          screens: {
+            'xs': '420px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 滚动条美化 */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    -webkit-tap-highlight-color: transparent;
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-100 selection:text-brand-600">
+
+  <!-- 顶部导航栏 -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-all">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
+        <!-- Logo 品牌 -->
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 group focus:outline-none flex-shrink-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-brand-500 to-mint-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-book-open-reader text-base sm:text-lg"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="font-black text-base sm:text-lg text-slate-900 tracking-tight">从小学习</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded-md bg-brand-50 text-brand-700 font-mono font-semibold hidden xs:inline-block border border-brand-100">congxiaoxuexi.com</span>
+            </div>
+            <p class="text-[10px] text-slate-400 hidden sm:block">从幼小启蒙到高中提分 · 陪伴孩子步步成长</p>
+          </div>
+        </a>
+
+        <!-- 电脑端搜索框 -->
+        <div class="relative hidden md:block w-72 lg:w-84">
+          <input type="text" id="desktopSearchInput" placeholder="搜索年级学科、试卷、核心讲义..." 
+                 class="w-full pl-9 pr-8 py-2 text-xs sm:text-sm rounded-full bg-slate-100/90 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+          <button id="desktopClearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-slate-600">
+            <i class="fa-solid fa-circle-xmark text-xs"></i>
+          </button>
+        </div>
+
+        <!-- 快捷操作按钮 -->
+        <div class="flex items-center gap-1.5 sm:gap-3">
+          <a href="#decompressSection" class="px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-800 hover:text-amber-900 bg-amber-50 hover:bg-amber-100/80 rounded-xl transition-colors flex items-center gap-1.5 border border-amber-200">
+            <i class="fa-solid fa-box-archive text-amber-600 text-xs"></i>
+            <span>解压指引</span>
+          </a>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-brand-500 hover:bg-brand-600 text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:shadow transition-all flex items-center gap-1">
+            <i class="fa-solid fa-compass text-xs"></i>
+            <span class="hidden xs:inline">资源首页</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容容器 -->
+  <main class="flex-grow max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-7 w-full space-y-5 sm:space-y-7">
+    
+    <!-- 手机端搜索输入框 -->
+    <div class="md:hidden">
+      <div class="relative">
+        <input type="text" id="mobileSearchInput" placeholder="输入学科、试卷名称、知识点搜索..." 
+               class="w-full pl-9 pr-8 py-2.5 text-xs sm:text-sm rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs"></i>
+        <button id="mobileClearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-circle-xmark text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 防和谐解压特别提醒横幅 -->
+    <section class="rounded-2xl sm:rounded-3xl border border-amber-200/90 bg-gradient-to-r from-amber-50/95 via-amber-50/70 to-orange-50/90 p-3.5 sm:p-5 shadow-sm">
+      <div class="flex items-start gap-3 sm:gap-4">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-sm sm:text-base flex-shrink-0 shadow-md shadow-amber-500/20 mt-0.5">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="flex-grow">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="font-black text-slate-900 text-xs sm:text-sm md:text-base tracking-tight flex items-center gap-1.5">
+              <span>重要说明：本站所有课程资料均需【保存后下载到本地解压】！</span>
+            </h3>
+            <a href="#decompressSection" class="text-[11px] sm:text-xs text-amber-700 hover:text-amber-800 font-bold underline flex items-center gap-0.5">
+              <span>手机/电脑解压教程</span>
+              <i class="fa-solid fa-angle-right text-[10px]"></i>
+            </a>
+          </div>
+          <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
+            为防止课件分享被网盘平台误封和谐，资料采用 <strong class="text-amber-900 font-mono font-bold">ZIP/RAR 高度压制加密包</strong>。
+            <span class="text-rose-600 font-bold underline">请勿在夸克网盘内直接在线点击预览（会提示损坏或无法读取）</span>。请务必先转存至自己网盘，下载到本地设备解压后即可永久清晰使用。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学段与学科筛选区 -->
+    <section class="space-y-3" id="courseListAnchor">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
+          <h2 class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">学段阶段筛选</h2>
+        </div>
+        <span id="resultCountBadge" class="text-[11px] sm:text-xs text-slate-500 font-medium">加载中...</span>
+      </div>
+
+      <!-- 一级学段按钮 -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-3.5 px-3.5 sm:mx-0 sm:px-0" id="stageFilterContainer">
+        <!-- Injected by JavaScript -->
+      </div>
+
+      <!-- 二级学科按钮 -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-3.5 px-3.5 sm:mx-0 sm:px-0" id="subjectFilterContainer">
+        <!-- Injected by JavaScript -->
+      </div>
+    </section>
+
+    <!-- 资料卡片网格展示 (每页固定严格 8 门资料) -->
+    <section>
+      <div id="resourceGrid" class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5 sm:gap-5">
+        <!-- JS 动态渲染 -->
+      </div>
+
+      <!-- 空状态 -->
+      <div id="emptyState" class="hidden text-center py-14 sm:py-20 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
+        <div class="w-16 h-16 mx-auto mb-3 rounded-3xl bg-slate-100 flex items-center justify-center text-slate-400 text-2xl">
+          <i class="fa-regular fa-folder-open"></i>
+        </div>
+        <h3 class="text-sm sm:text-base font-bold text-slate-800 mb-1">未找到符合条件的内容</h3>
+        <p class="text-xs text-slate-400 max-w-sm mx-auto mb-4 leading-relaxed">您可以切换学段分类标签或清空搜索关键词后重新查看。</p>
+        <button onclick="resetFilters()" class="px-4 py-2 bg-brand-50 hover:bg-brand-100 text-brand-600 rounded-xl text-xs font-bold transition-colors">
+          清空所有筛选
+        </button>
+      </div>
+    </section>
+
+    <!-- 高清分页控制条 -->
+    <section id="paginationSection" class="pt-2 pb-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm">
+        <div class="text-xs text-slate-500 order-2 sm:order-1 font-medium text-center sm:text-left">
+          显示第 <span id="pageStartNum" class="font-bold text-slate-800">1</span> - <span id="pageEndNum" class="font-bold text-slate-800">8</span> 门，共 <span id="totalItemsNum" class="font-bold text-brand-600">0</span> 门课程资料（每页 8 门）
+        </div>
+        <div class="flex items-center gap-1.5 sm:gap-2 order-1 sm:order-2" id="paginationControls">
+          <!-- 动态翻页按键 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 解压指引专区 -->
+    <section id="decompressSection" class="bg-white rounded-3xl p-4 sm:p-7 border border-slate-200/90 shadow-sm space-y-5 scroll-mt-20">
+      <div class="border-b border-slate-100 pb-3 sm:pb-4">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold mb-1.5">
+          <i class="fa-solid fa-box-archive text-xs"></i>
+          <span>新手必备 · 解压实操指引</span>
+        </div>
+        <h3 class="text-base sm:text-xl font-black text-slate-900 tracking-tight">
+          手机与电脑夸克网盘转存及本地无损解压教程
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">
+          资料统一采用分卷高压缩加密防炸包格式，请按以下简易三步离线打开。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-5">
+        <!-- 手机端 -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200 space-y-2.5">
+          <div class="flex items-center gap-2 text-brand-600 font-bold text-sm">
+            <div class="w-7 h-7 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600 text-xs font-black">1</div>
+            <span>手机端（安卓/苹果）</span>
+          </div>
+          <div class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+            <p>1. 点击课程单页中的「夸克转存」，先完整保存至自己的网盘；</p>
+            <p>2. 在夸克 App 内找到文件，点击「下载到本地」；</p>
+            <p>3. <strong>安卓：</strong>用自带文件管理或在应用商店免费下载 <span class="font-bold text-brand-600">ZArchiver</span>；</p>
+            <p>4. <strong>苹果(iOS)：</strong>在 App Store 下载免费的 <span class="font-bold text-brand-600">iZip</span> 或 <span class="font-bold text-brand-600">解压专家</span> 即可打开。</p>
+          </div>
+        </div>
+
+        <!-- 电脑端 -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200 space-y-2.5">
+          <div class="flex items-center gap-2 text-teal-600 font-bold text-sm">
+            <div class="w-7 h-7 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600 text-xs font-black">2</div>
+            <span>电脑端（Windows/Mac）</span>
+          </div>
+          <div class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+            <p>1. 在电脑浏览器复制链接打开或通过夸克客户端下载文件；</p>
+            <p>2. <strong>Windows：</strong>右键推荐使用 <span class="font-bold text-teal-700">7-Zip</span>、<span class="font-bold text-teal-700">Bandizip</span> 或 WinRAR 解压；</p>
+            <p>3. <strong>Mac：</strong>双击或使用免费工具 <span class="font-bold text-teal-700">The Unarchiver</span> 解压；</p>
+            <p>4. 解压后即可无损获得高分辨率矢量 PDF、Word 题库及高清视频。</p>
+          </div>
+        </div>
+
+        <!-- 常见问答 -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-2.5 sm:col-span-2 md:col-span-1">
+          <div class="flex items-center gap-2 text-amber-700 font-bold text-sm">
+            <div class="w-7 h-7 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700 text-xs font-black">?</div>
+            <span>常见疑问与解答</span>
+          </div>
+          <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+            <div>
+              <strong class="text-amber-900 block">Q：为什么网盘里直接预览会提示损坏？</strong>
+              <p class="text-slate-500">网盘在线预览无法识别经过加密混淆的防炸压缩包。只要下载到本机解压，内容 100% 完整！</p>
+            </div>
+            <div>
+              <strong class="text-amber-900 block">Q：解压需要密码吗？</strong>
+              <p class="text-slate-500">所有资料绝大多数为<strong>免密码</strong>解压，若有个别专用密码会在对应的课程单页面中醒目标注。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-white border-t border-slate-200 mt-12 sm:mt-16 py-7 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-mint-500"></span>
+        <span>© 2026 <strong>从小学习</strong> · 官方域名：<a href="https://congxiaoxuexi.com" class="text-brand-600 font-semibold hover:underline">congxiaoxuexi.com</a></span>
+      </div>
+      <div class="flex items-center gap-3 text-slate-400 text-[11px] sm:text-xs">
+        <span>从幼小衔接到高中提分</span>
+        <span>•</span>
+        <a href="#decompressSection" class="hover:text-amber-600 underline">解压指引</a>
+        <span>•</span>
+        <button onclick="showToast('若网盘链接失效，请在课程页复制后提交反馈', 'info')" class="hover:underline">失效反馈</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast 提示条 -->
+  <div id="toast" class="fixed bottom-5 right-5 left-5 xs:left-auto xs:max-w-sm z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-900 text-white shadow-2xl text-xs sm:text-sm">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-mint-400 flex-shrink-0"></i>
+    <span id="toastMsg" class="flex-grow">操作成功</span>
+  </div>
+
+  <script>
+    const COURSES = [
+      {
+        id: "res-001",
+        title: "幼儿园幼小衔接：趣味拼音+数学启蒙全套练习册（含高清A4打印模版与伴读音频）",
+        stage: "kindergarten",
+        stageName: "幼儿园/幼小衔接",
+        subject: "幼小衔接",
+        pageUrl: "courses/kg-draw.html",
+        format: "ZIP 压缩包",
+        size: "348 MB",
+        updatedAt: "2026-03-12",
+        downloads: "2.4万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_kg_01",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        summary: "专为大班及学前幼儿打造，包含声母韵母发音手绘图解、20以内加减法思维卡，彩色高清可直接A4打印练习。"
+      },
+      {
+        id: "res-002",
+        title: "幼儿经典睡前绘本及国学启蒙早教动画音频包（精选300部凯迪克大奖合集）",
+        stage: "kindergarten",
+        stageName: "幼儿园/幼小衔接",
+        subject: "绘本故事",
+        pageUrl: "courses/kg-english.html",
+        format: "RAR 深度分卷包",
+        size: "3.2 GB",
+        updatedAt: "2026-02-28",
+        downloads: "3.8万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_kg_02",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+        summary: "汇集国际大奖经典绘本扫描版、三字经弟子规国学韵律唱诵动画以及睡前温和伴读录音，宝妈奶爸启蒙宝库。"
+      },
+      {
+        id: "res-003",
+        title: "小学1-6年级全套古诗文通关秘籍：思维导图+常考考点名师手写精讲全集",
+        stage: "primary",
+        stageName: "小学阶段",
+        subject: "语文",
+        pageUrl: "courses/primary-chinese.html",
+        format: "ZIP 压缩包",
+        size: "520 MB",
+        updatedAt: "2026-03-08",
+        downloads: "5.1万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_prim_chinese",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        summary: "统编版小学语文112首必背古诗词全覆盖，每篇均附作者历史背景、重点注释译文及名校真题填空自测卷。"
+      },
+      {
+        id: "res-004",
+        title: "小学奥数思维训练100讲（奥数题卡精练+名师手绘解题模型大招）",
+        stage: "primary",
+        stageName: "小学阶段",
+        subject: "数学",
+        pageUrl: "courses/primary-math.html",
+        format: "ZIP 压缩大包",
+        size: "1.8 GB",
+        updatedAt: "2026-03-01",
+        downloads: "4.3万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_prim_math",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80",
+        summary: "涵盖和差倍问题、鸡兔同笼、行程相遇追及、数阵图、抽屉原理等小学核心培优专题，配备详尽步骤解析。"
+      },
+      {
+        id: "res-005",
+        title: "小学英语自然拼读 Phonics 专项速通宝典（全套图解母卡+外教发音示范MP4）",
+        stage: "primary",
+        stageName: "小学阶段",
+        subject: "英语",
+        pageUrl: "courses/primary-phonics.html",
+        format: "ZIP 压缩包",
+        size: "620 MB",
+        updatedAt: "2026-03-05",
+        downloads: "3.2万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_prim_phonics",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80",
+        summary: "从单字母发音到复合字母组合拼读规律，涵盖常见字母组合连读，见词能读，听音能写，打消记单词畏难心理。"
+      },
+      {
+        id: "res-006",
+        title: "初中中考英语核心1600词汇便携速记手册（附语境例句+中考原速听力MP3）",
+        stage: "junior",
+        stageName: "初中中考",
+        subject: "英语",
+        pageUrl: "courses/junior-english.html",
+        format: "ZIP 压缩包",
+        size: "340 MB",
+        updatedAt: "2026-02-18",
+        downloads: "6.7万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_jun_english",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        summary: "依据最新新课标中考英语考纲精选，按情境场景分类，标注文中考查频次、固定短语搭配与完形填空核心辨析。"
+      },
+      {
+        id: "res-007",
+        title: "初中物理人教版必考实验专题突破大全（22个必考探究实验实物电路图解）",
+        stage: "junior",
+        stageName: "初中中考",
+        subject: "物理",
+        pageUrl: "courses/junior-phys.html",
+        format: "RAR 压缩包",
+        size: "410 MB",
+        updatedAt: "2026-03-10",
+        downloads: "3.5万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_jun_physics",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?auto=format&fit=crop&w=800&q=80",
+        summary: "全面归纳力学杠杆平衡、浮力阿基米德原理、电学欧姆定律测电阻、凸透镜成像规律等实验题型与扣分避坑。"
+      },
+      {
+        id: "res-008",
+        title: "初中道德与法治（中考政史）核心主观题答题模板与考前背诵金句手册",
+        stage: "junior",
+        stageName: "初中中考",
+        subject: "道德与法治",
+        pageUrl: "courses/junior-politics.html",
+        format: "ZIP 压缩包",
+        size: "190 MB",
+        updatedAt: "2026-03-02",
+        downloads: "4.1万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_jun_politics",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        summary: "紧扣新课改中考考纲，分类整理法律素养、国情国策、传统文化等核心主观题采分逻辑与材料大题解题框架。"
+      },
+      {
+        id: "res-009",
+        title: "2026高中高考数学圆锥曲线与导数压轴题大题秒杀技巧与变式专项真题库",
+        stage: "senior",
+        stageName: "高中高考",
+        subject: "数学",
+        pageUrl: "courses/senior-math.html",
+        format: "ZIP 压缩包",
+        size: "680 MB",
+        updatedAt: "2026-03-15",
+        downloads: "8.9万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_sen_math",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
+        summary: "聚焦新高考全国卷压轴大题，深度剖析导数隐零点、切线同构、双变量极值偏移与圆锥曲线齐次化消元。"
+      },
+      {
+        id: "res-010",
+        title: "高中全科目知识点总复习超清思维脑图全集（语数英物化生政史地8000x6000）",
+        stage: "senior",
+        stageName: "高中高考",
+        subject: "全科大盘点",
+        pageUrl: "courses/senior-all.html",
+        format: "RAR 压缩包",
+        size: "890 MB",
+        updatedAt: "2026-03-14",
+        downloads: "9.6万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_sen_all",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        summary: "高一至高三九大学科核心考点知识网络图谱，支持超高分辨率无限缩放，系统构建学科宏观认知与答题脉络。"
+      },
+      {
+        id: "res-011",
+        title: "高中物理模型与解题方法全通关总结（板块模型、传送带、电磁复合场）",
+        stage: "senior",
+        stageName: "高中高考",
+        subject: "物理",
+        pageUrl: "courses/senior-physics.html",
+        format: "ZIP 压缩包",
+        size: "420 MB",
+        updatedAt: "2026-03-16",
+        downloads: "3.9万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_sen_physics",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?auto=format&fit=crop&w=800&q=80",
+        summary: "高中三年物理重难点大题解题大宝典，提炼直观物理情景与运动学方程列式标准，拔高物理压轴题思维。"
+      },
+      {
+        id: "res-012",
+        title: "高中历史新课标必备：中外历史纲要重大历史事件时间轴对照折页",
+        stage: "senior",
+        stageName: "高中高考",
+        subject: "历史",
+        pageUrl: "courses/senior-history.html",
+        format: "ZIP 压缩包",
+        size: "185 MB",
+        updatedAt: "2026-03-09",
+        downloads: "3.4万次",
+        quarkUrl: "https://pan.quark.cn/s/sample_sen_history",
+        extractPwd: "免解压密码",
+        cover: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80",
+        summary: "中西历史横向坐标对照，一眼看清同一时期全球格局变化，阶段特征与政治经济制度发展脉络高度凝练。"
+      }
+    ];
+
+    const ITEMS_PER_PAGE = 8; // 每页固定严格 8 门资料
+    let currentPage = 1;
+    let currentStage = 'all';
+    let currentSubject = 'all';
+    let searchQuery = '';
+
+    const STAGES = [
+      { id: 'all', name: '全部学段', icon: 'fa-globe' },
+      { id: 'kindergarten', name: '幼儿园/幼小衔接', icon: 'fa-shapes' },
+      { id: 'primary', name: '小学阶段', icon: 'fa-book-bookmark' },
+      { id: 'junior', name: '初中中考', icon: 'fa-pen-ruler' },
+      { id: 'senior', name: '高中高考', icon: 'fa-atom' }
+    ];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initStageFiltersUI();
+      bindSearchEvents();
+      renderResourceCatalog();
+    });
+
+    function bindSearchEvents() {
+      const deskInput = document.getElementById('desktopSearchInput');
+      const mobInput = document.getElementById('mobileSearchInput');
+      const deskClear = document.getElementById('desktopClearSearchBtn');
+      const mobClear = document.getElementById('mobileClearSearchBtn');
+
+      const onSearchInput = (value) => {
+        searchQuery = value.trim().toLowerCase();
+        currentPage = 1;
+        
+        if (deskClear) deskClear.classList.toggle('hidden', !searchQuery);
+        if (mobClear) mobClear.classList.toggle('hidden', !searchQuery);
+
+        if (deskInput && deskInput.value !== value) deskInput.value = value;
+        if (mobInput && mobInput.value !== value) mobInput.value = value;
+
+        renderResourceCatalog();
+      };
+
+      if (deskInput) deskInput.addEventListener('input', (e) => onSearchInput(e.target.value));
+      if (mobInput) mobInput.addEventListener('input', (e) => onSearchInput(e.target.value));
+    }
+
+    function clearSearch() {
+      const deskInput = document.getElementById('desktopSearchInput');
+      const mobInput = document.getElementById('mobileSearchInput');
+      if (deskInput) deskInput.value = '';
+      if (mobInput) mobInput.value = '';
+      searchQuery = '';
+      document.getElementById('desktopClearSearchBtn')?.classList.add('hidden');
+      document.getElementById('mobileClearSearchBtn')?.classList.add('hidden');
+      currentPage = 1;
+      renderResourceCatalog();
+    }
+
+    function initStageFiltersUI() {
+      const gradeContainer = document.getElementById('stageFilterContainer');
+      gradeContainer.innerHTML = STAGES.map(stage => {
+        const isActive = currentStage === stage.id;
+        return `
+          <button onclick="setStageFilter('${stage.id}')" 
+            class="whitespace-nowrap flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              isActive 
+                ? 'bg-brand-500 text-white shadow-md shadow-brand-500/25 scale-[1.02]' 
+                : 'bg-white text-slate-600 hover:bg-slate-100/90 border border-slate-200'
+            }">
+            <i class="fa-solid ${stage.icon} text-xs"></i>
+            <span>${stage.name}</span>
+          </button>
+        `;
+      }).join('');
+
+      renderSubjectFilter();
+    }
+
+    function renderSubjectFilter() {
+      const subContainer = document.getElementById('subjectFilterContainer');
+      let subjects = new Set(['全部学科']);
+      COURSES.forEach(r => {
+        if (currentStage === 'all' || r.stage === currentStage) {
+          subjects.add(r.subject);
+        }
+      });
+
+      subContainer.innerHTML = Array.from(subjects).map(sub => {
+        const isSelected = (currentSubject === 'all' && sub === '全部学科') || (currentSubject === sub);
+        return `
+          <button onclick="setSubjectFilter('${sub === '全部学科' ? 'all' : sub}')" 
+            class="px-3 py-1 rounded-xl whitespace-nowrap text-xs transition-colors ${
+              isSelected 
+                ? 'bg-slate-800 text-white font-bold shadow-sm' 
+                : 'bg-slate-100/90 hover:bg-slate-200/90 text-slate-600 font-medium'
+            }">
+            ${sub}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setStageFilter(stageId) {
+      currentStage = stageId;
+      currentSubject = 'all';
+      currentPage = 1;
+      initStageFiltersUI();
+      renderResourceCatalog();
+    }
+
+    function setSubjectFilter(subj) {
+      currentSubject = subj;
+      currentPage = 1;
+      renderSubjectFilter();
+      renderResourceCatalog();
+    }
+
+    function resetFilters() {
+      currentStage = 'all';
+      currentSubject = 'all';
+      clearSearch();
+      initStageFiltersUI();
+      renderResourceCatalog();
+    }
+
+    function getFilteredResources() {
+      return COURSES.filter(item => {
+        const matchStage = (currentStage === 'all') || (item.stage === currentStage);
+        const matchSubject = (currentSubject === 'all') || (item.subject === currentSubject);
+        const matchQuery = !searchQuery || 
+          item.title.toLowerCase().includes(searchQuery) ||
+          item.summary.toLowerCase().includes(searchQuery) ||
+          item.subject.toLowerCase().includes(searchQuery) ||
+          item.stageName.toLowerCase().includes(searchQuery);
+
+        return matchStage && matchSubject && matchQuery;
+      });
+    }
+
+    function renderResourceCatalog() {
+      const filtered = getFilteredResources();
+      const totalCount = filtered.length;
+      const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE) || 1;
+
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalCount);
+      const pageItems = filtered.slice(startIndex, endIndex);
+
+      const badge = document.getElementById('resultCountBadge');
+      if (badge) badge.textContent = `共 ${totalCount} 门课程资料`;
+
+      const pageStartNum = document.getElementById('pageStartNum');
+      const pageEndNum = document.getElementById('pageEndNum');
+      const totalItemsNum = document.getElementById('totalItemsNum');
+      if (pageStartNum) pageStartNum.textContent = totalCount === 0 ? 0 : (startIndex + 1);
+      if (pageEndNum) pageEndNum.textContent = endIndex;
+      if (totalItemsNum) totalItemsNum.textContent = totalCount;
+
+      const grid = document.getElementById('resourceGrid');
+      const empty = document.getElementById('emptyState');
+      const paginationSection = document.getElementById('paginationSection');
+
+      if (totalCount === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        if (paginationSection) paginationSection.classList.add('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      if (paginationSection) paginationSection.classList.remove('hidden');
+
+      grid.innerHTML = pageItems.map(item => `
+        <div class="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 hover:border-brand-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+          <!-- 封面图（点击直达单页面） -->
+          <a href="${item.pageUrl}" class="relative h-36 xs:h-40 sm:h-44 w-full overflow-hidden bg-slate-100 block">
+            <img src="${item.cover}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=从小学习资料'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60"></div>
+            
+            <div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1">
+              <span class="px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-extrabold bg-white/95 text-slate-800 shadow-sm">
+                ${item.stageName}
+              </span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-extrabold bg-brand-500 text-white shadow-sm">
+                ${item.subject}
+              </span>
+            </div>
+
+            <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] sm:text-xs drop-shadow">
+              <span class="bg-black/55 backdrop-blur px-1.5 py-0.5 rounded text-[10px] text-amber-300 font-bold">
+                <i class="fa-solid fa-box-archive mr-0.5"></i>需本地解压
+              </span>
+              <span class="font-mono text-slate-200 font-semibold">${item.size}</span>
+            </div>
+          </a>
+
+          <!-- 卡片内容 -->
+          <div class="p-3.5 sm:p-4 flex flex-col flex-grow justify-between">
+            <div>
+              <h3 class="font-bold text-slate-900 text-xs sm:text-sm leading-snug group-hover:text-brand-600 transition-colors line-clamp-2 mb-1.5">
+                <a href="${item.pageUrl}">${item.title}</a>
+              </h3>
+              
+              <p class="text-slate-500 text-[11px] sm:text-xs leading-relaxed line-clamp-2 mb-2.5">
+                ${item.summary}
+              </p>
+            </div>
+
+            <div>
+              <div class="mb-2.5 px-2 py-1 rounded-lg bg-amber-50 border border-amber-100 text-[10px] sm:text-[11px] text-amber-800 flex items-center gap-1.5 truncate">
+                <i class="fa-solid fa-file-zipper text-amber-600 flex-shrink-0"></i>
+                <span class="truncate">${item.format} · 防和谐包</span>
+              </div>
+
+              <div class="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400 mb-2.5">
+                <span><i class="fa-regular fa-clock"></i> ${item.updatedAt}</span>
+                <span class="text-mint-600 font-bold"><i class="fa-solid fa-fire text-mint-500"></i> ${item.downloads}</span>
+              </div>
+
+              <!-- 操作按钮：详情 + 转存 -->
+              <div class="grid grid-cols-2 gap-1.5">
+                <a href="${item.pageUrl}" class="w-full py-2 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center justify-center gap-1">
+                  <i class="fa-regular fa-eye"></i>
+                  <span>详情</span>
+                </a>
+                <button onclick="quickOpenQuark('${item.quarkUrl}', '${item.extractPwd}')" class="w-full py-2 px-2 rounded-xl bg-quark-500 hover:bg-quark-600 text-white text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-1">
+                  <i class="fa-solid fa-cloud-arrow-down"></i>
+                  <span>转存</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      renderPaginationControls(totalPages);
+    }
+
+    function renderPaginationControls(totalPages) {
+      const container = document.getElementById('paginationControls');
+      if (!container) return;
+
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+
+      let buttonsHTML = '';
+
+      // 上一页
+      buttonsHTML += `
+        <button onclick="changePage(${currentPage - 1})" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold transition-all ${
+            currentPage === 1 ? 'opacity-40 cursor-not-allowed bg-slate-50 text-slate-400' : 'bg-white hover:bg-slate-100 text-slate-700'
+          }" ${currentPage === 1 ? 'disabled' : ''}>
+          <i class="fa-solid fa-chevron-left text-[10px] mr-1"></i>上一页
+        </button>
+      `;
+
+      // 页码
+      for (let i = 1; i <= totalPages; i++) {
+        if (totalPages > 5 && Math.abs(i - currentPage) > 2 && i !== 1 && i !== totalPages) {
+          if (i === 2 || i === totalPages - 1) {
+            buttonsHTML += `<span class="px-1 text-slate-400 text-xs font-bold">...</span>`;
+          }
+          continue;
+        }
+
+        const isCurrent = i === currentPage;
+        buttonsHTML += `
+          <button onclick="changePage(${i})" 
+            class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl text-xs font-extrabold transition-all ${
+              isCurrent 
+                ? 'bg-brand-500 text-white shadow-sm' 
+                : 'bg-white hover:bg-slate-100 border border-slate-200 text-slate-700'
+            }">
+            ${i}
+          </button>
+        `;
+      }
+
+      // 下一页
+      buttonsHTML += `
+        <button onclick="changePage(${currentPage + 1})" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold transition-all ${
+            currentPage === totalPages ? 'opacity-40 cursor-not-allowed bg-slate-50 text-slate-400' : 'bg-white hover:bg-slate-100 text-slate-700'
+          }" ${currentPage === totalPages ? 'disabled' : ''}>
+          下一页<i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+        </button>
+      `;
+
+      container.innerHTML = buttonsHTML;
+    }
+
+    function changePage(newPage) {
+      const filtered = getFilteredResources();
+      const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE) || 1;
+      if (newPage < 1 || newPage > totalPages) return;
+
+      currentPage = newPage;
+      renderResourceCatalog();
+      const anchor = document.getElementById('courseListAnchor');
+      if (anchor) {
+        anchor.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function quickOpenQuark(url, pwd) {
+      copyToClipboard(url, `夸克链接已复制！请转存后下载到手机/电脑本地解压`);
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 350);
+    }
+
+    function copyToClipboard(text, message = '已成功复制至剪贴板！') {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(message, 'success');
+      } catch (err) {
+        showToast('请手动复制链接', 'info');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(msg, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMsg.textContent = msg;
+
+      if (type === 'success') {
+        toastIcon.className = 'fa-solid fa-circle-check text-mint-400 flex-shrink-0';
+      } else if (type === 'error') {
+        toastIcon.className = 'fa-solid fa-circle-xmark text-rose-400 flex-shrink-0';
+      } else {
+        toastIcon.className = 'fa-solid fa-circle-info text-sky-400 flex-shrink-0';
+      }
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
